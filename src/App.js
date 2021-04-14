@@ -1,13 +1,17 @@
-import Header from './Components/Header/Header';
-import Footer from './Components/Footer/Footer';
 import './App.css';
+import { NOT_LOGIN, BUYER_LOGIN, SELLER_LOGIN } from './Assets/Constant';
+import Drawer from './Components/Drawer/Drawer';
+import Dashboard from './Pages/General/Dashboard';
 
-// this page load without login too
 function App() {
     return (
         <div className='App'>
-            <Header />
-            <Footer />
+            <div className='Drawer'>
+                <Drawer page={NOT_LOGIN} />
+            </div>
+            <div className='Main-body'>
+                <Dashboard />
+            </div>
         </div>
     );
 }
