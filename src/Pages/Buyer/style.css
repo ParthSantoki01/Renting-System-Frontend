@@ -1,0 +1,11 @@
+.BuyerAddresses-main {
+    padding: 0;
+    margin: 0;
+}
+
+.BuyerAddresses-main-card {
+    padding-bottom: 1%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
