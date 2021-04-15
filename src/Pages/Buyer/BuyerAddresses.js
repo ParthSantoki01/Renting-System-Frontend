@@ -1,6 +1,6 @@
 import React from 'react';
 import AddressCard from '../../Components/Cardview/AddressCard';
-import DashboardHeader from '../../Components/Header/DashboardHeader';
+import TitleHeader from '../../Components/Header/TitleHeader';
 import './style.css';
 
 const BuyerAddresses = () => {
@@ -10,7 +10,7 @@ const BuyerAddresses = () => {
     }
     return (
         <div className='BuyerAddresses-main'>
-            <DashboardHeader />
+            <TitleHeader name={'Seller Address'} />
             <div className='BuyerAddresses-main-card'>{cards}</div>
         </div>
     );
