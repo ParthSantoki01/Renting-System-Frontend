@@ -3,6 +3,7 @@ import { NOT_LOGIN, BUYER_LOGIN, SELLER_LOGIN } from './Assets/Constant';
 import Drawer from './Components/Drawer/Drawer';
 import Dashboard from './Pages/General/Dashboard';
 import BuyerViewProduct from './Pages/Buyer/BuyerViewProduct';
+import BuyerCheckout from './Pages/Buyer/BuyerCheckout';
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
         <Drawer />
       </div>
       <div className='Main-body'>
-        <BuyerViewProduct />
+        <BuyerCheckout />
       </div>
     </div>
   );
