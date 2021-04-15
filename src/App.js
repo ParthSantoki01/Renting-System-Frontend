@@ -3,6 +3,8 @@ import { NOT_LOGIN, BUYER_LOGIN, SELLER_LOGIN } from './Assets/Constant';
 import Drawer from './Components/Drawer/Drawer';
 import BuyerAddresses from './Pages/Buyer/BuyerAddresses';
 import Dashboard from './Pages/General/Dashboard';
+import BuyerViewProduct from './Pages/Buyer/BuyerViewProduct';
+import BuyerCheckout from './Pages/Buyer/BuyerCheckout';
 
 function App() {
     return (
