@@ -1,88 +1,88 @@
 .ProductCardview {
-    background-color: #2e2e2e;
-    height: 280px;
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 6px;
-    margin: 5px;
+  background-color: #2e2e2e;
+  height: 280px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  margin: 5px;
 }
 
 .ProductCardview-title {
-    color: white;
-    margin: 0;
-    font-size: medium;
-    font-family: Roboto;
-    margin: 5% 0%;
-    padding: 1% 3%;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    letter-spacing: 1px;
+  color: white;
+  margin: 0;
+  font-size: medium;
+  font-family: Roboto;
+  margin: 5% 0%;
+  padding: 1% 3%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  letter-spacing: 1px;
 }
 
 .ProductCardview-price-body {
-    margin-top: 8px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-end;
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 .ProductCardview-price {
-    margin: 0;
-    font-family: Roboto;
-    margin-left: 5%;
-    font-size: medium;
-    color: #cfabfd;
+  margin: 0;
+  font-family: Roboto;
+  margin-left: 5%;
+  font-size: medium;
+  color: #cfabfd;
 }
 
 .ProductCardview-formatprice {
-    margin: 0;
-    font-family: Roboto;
-    font-size: small;
-    margin-right: 5%;
-    color: #bb86fc;
+  margin: 0;
+  font-family: Roboto;
+  font-size: small;
+  margin-right: 5%;
+  color: #bb86fc;
 }
 
 .AddressCard-main {
-    width: 45%;
-    min-height: 15vh;
-    background-color: #2e2e2e;
-    border-radius: 4px;
-    margin: 1%;
-    margin-bottom: 0;
-    display: flex;
+  width: 45%;
+  min-height: 15vh;
+  background-color: #2e2e2e;
+  border-radius: 4px;
+  margin: 1%;
+  margin-bottom: 0;
+  display: flex;
 }
 
 .AddressCard-name-body {
-    flex: 1;
-    position: relative;
-    overflow: hidden;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
 }
 
 .AddressCard-name {
-    padding: 0;
-    margin: 0;
-    margin-bottom: 8px;
-    margin-left: 8px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    font-size: larger;
-    color: #bb86fc;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 8px;
+  margin-left: 8px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: larger;
+  color: #bb86fc;
 }
 
 .AddressCard-address-body {
-    flex: 3;
-    height: 15vh;
-    overflow-y: auto;
+  flex: 3;
+  height: 15vh;
+  overflow-y: auto;
 }
 
 .AddressCard-address {
-    padding: 0;
-    margin: 0;
-    margin-left: 8px;
-    margin-top: 8px;
-    color: white;
+  padding: 0;
+  margin: 0;
+  margin-left: 8px;
+  margin-top: 8px;
+  color: white;
 }

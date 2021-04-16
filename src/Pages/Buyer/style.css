@@ -1,190 +1,251 @@
 /* Buyer Address page */
 
 .BuyerAddresses-main {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .BuyerAddresses-main-card {
-    padding-bottom: 1%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  padding-bottom: 1%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* Buyer view product page */
 
 .BuyerViewProduct-body {
-    display: flex;
-    flex-direction: row;
-    margin-top: 1%;
-    padding: 2%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 1%;
+  padding: 2%;
 }
 
 .BuyerViewProduct-sub {
-    flex: 7;
-    background-color: #222222;
-    border-radius: 4px;
-    margin: 0% auto;
+  flex: 7;
+  background-color: #222222;
+  border-radius: 4px;
+  margin: 0% auto;
 }
 .BuyerViewProduct-imagediv {
-    flex: 5;
-    display: flex;
-    flex-direction: column;
-    padding: 1%;
+  flex: 5;
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
 }
 .BuyerViewProduct-imagesub {
-    position: sticky;
-    top: 10%;
+  position: sticky;
+  top: 10%;
 }
 .BuyerViewProduct-image {
-    max-width: 100%;
-    max-height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .BuyerViewProduct-title {
-    font-size: 36px;
-    font-family: Roboto;
-    color: white;
-    padding: 2%;
+  font-size: 36px;
+  font-family: Roboto;
+  color: white;
+  padding: 2%;
 }
 
 .BuyerViewProduct-pricediv {
-    font-family: Roboto;
-    padding: 1%;
-    padding-right: 50%;
-    display: flex;
-    margin-top: 2%;
+  font-family: Roboto;
+  padding: 1%;
+  padding-right: 50%;
+  display: flex;
+  margin-top: 2%;
 }
 .BuyerViewProduct-price {
-    font-size: 30px;
-    color: #cfabfd;
-    font-family: Roboto;
-    padding: 1%;
-    flex: 1;
+  font-size: 30px;
+  color: #cfabfd;
+  font-family: Roboto;
+  padding: 1%;
+  flex: 1;
 }
 
 .BuyerViewProduct-formatprice {
-    font-size: 24px;
-    font-family: Roboto;
-    color: #bb86fc;
-    flex: 1;
-    padding: 1%;
+  font-size: 24px;
+  font-family: Roboto;
+  color: #bb86fc;
+  flex: 1;
+  padding: 1%;
 }
 
 .BuyerViewProduct-category {
-    font-size: 24px;
-    font-family: Roboto;
-    color: white;
-    padding: 1%;
+  font-size: 24px;
+  font-family: Roboto;
+  color: white;
+  padding: 1%;
 }
 
 .BuyerViewProduct-description {
-    font-size: large;
-    font-family: Roboto;
-    color: white;
-    padding: 1%;
+  font-size: large;
+  font-family: Roboto;
+  color: white;
+  padding: 1%;
 }
 
 .BuyerViewProduct-seller-details {
-    font-size: larger;
-    font-family: Roboto;
-    color: white;
-    padding: 1%;
-    display: flex;
+  font-size: larger;
+  font-family: Roboto;
+  color: white;
+  padding: 1%;
+  display: flex;
 }
 .BuyerViewProduct-seller {
-    font-size: larger;
-    font-family: Roboto;
-    color: white;
-    padding: 0% 1%;
-    flex: 1;
+  font-size: larger;
+  font-family: Roboto;
+  color: white;
+  padding: 0% 1%;
+  flex: 1;
 }
 .BuyerViewProduct-sellername {
-    font-size: larger;
-    font-family: Roboto;
-    color: white;
-    padding: 0% 1%;
-    flex: 4;
+  font-size: larger;
+  font-family: Roboto;
+  color: white;
+  padding: 0% 1%;
+  flex: 4;
 }
 
 .BuyerViewProduct-buttons {
-    margin-top: 3%;
-    display: flex;
-    color: #994af1;
-    justify-content: center;
-    align-items: center;
+  margin-top: 3%;
+  display: flex;
+  color: #994af1;
+  justify-content: center;
+  align-items: center;
 }
 
 hr {
-    border-color: #383838;
+  border-color: #383838;
 }
 
 /* Buyer checkout page */
 
 .BuyerCheckout-main {
-    margin: auto;
-    margin-top: 3%;
-    margin-bottom: 3%;
-    width: 90%;
-    font-family: Roboto;
-    color: white;
-    background-color: #222222;
-    border-radius: 4px;
-    padding: 2%;
+  margin: auto;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  width: 90%;
+  font-family: Roboto;
+  color: white;
+  background-color: #222222;
+  border-radius: 4px;
+  padding: 2%;
 }
 
 .BuyerCheckout-title {
-    font-size: 36px;
-    padding: 1%;
+  font-size: 36px;
+  padding: 1%;
 }
 
 .BuyerCheckout-description {
-    padding: 1%;
-    font-size: 18px;
+  padding: 1%;
+  font-size: 18px;
 }
 
 .BuyerCheckout-address {
-    font-size: 24px;
-    padding: 1%;
-    margin-top: 1%;
-    display: flex;
+  font-size: 24px;
+  padding: 1%;
+  margin-top: 1%;
+  display: flex;
 }
 .BuyerCheckout-add {
-    flex: 1;
+  flex: 1;
 }
 .BuyerCheckout-Buyeraddress {
-    flex: 5;
+  flex: 5;
 }
 .BuyerCheckout-confirmdiv {
-    display: flex;
-    font-size: larger;
-    padding: 1%;
-    margin-top: 2%;
+  display: flex;
+  font-size: larger;
+  padding: 1%;
+  margin-top: 2%;
 }
 
 .BuyerCheckout-confirmdiv input {
-    flex: 1;
-    cursor: pointer;
-    font-size: 22px;
-    height: 20px;
-    width: 20px;
+  flex: 1;
+  cursor: pointer;
+  font-size: 22px;
+  height: 20px;
+  width: 20px;
 }
 
 .BuyerCheckout-confirm {
-    flex: 15;
+  flex: 15;
 }
 
 .BuyerCheckoutPrice {
-    flex: 5;
-    color: #bb86fc;
-    font-size: 36px;
+  flex: 5;
+  color: #bb86fc;
+  font-size: 36px;
 }
 
 .BuyerCheckout-buttons {
-    margin-top: 2%;
-    color: #994af1;
-    display: flex;
+  margin-top: 2%;
+  color: #994af1;
+  display: flex;
+}
+
+/* Buyer Profile Page */
+
+.BuyerProfile-page {
+  font-family: Roboto;
+}
+#main {
+  background-color: #222222;
+  margin: 2%;
+}
+.BuyerProfile-main {
+  margin-bottom: 2%;
+}
+.BuyerProfile-div {
+  font-size: 36px;
+  margin: 1%;
+  display: flex;
+  color: #bb86fc;
+}
+.BuyerProfile-image {
+  font-size: 2.5rem;
+}
+.BuyerProfile-title {
+  margin-left: 1%;
+}
+.BuyerProfile-sub {
+  width: 90%;
+  margin-left: 5%;
+  font-size: 24px;
+  margin-top: 1%;
+}
+.BuyerProfile-namediv {
+  font-size: 24px;
+  display: flex;
+  margin-bottom: 1%;
+}
+.BuyerProfile-hello {
+  flex: 2;
+}
+.BuyerProfile-name {
+  flex: 30;
+}
+.BuyerProfile-details {
+  display: flex;
+  width: 100%;
+}
+.BuyerProfile-addressdiv {
+  flex: 1;
+}
+.BuyerProfile-mobilenumberdiv {
+  flex: 1;
+}
+.BuyerProfile-dis {
+  color: #cfabfd;
+}
+.BuyerProfile-myorder {
+  color: white;
+}
+.BuyerProfile-signOut {
+  color: white;
 }
