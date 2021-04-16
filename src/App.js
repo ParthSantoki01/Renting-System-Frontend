@@ -50,7 +50,6 @@ function App() {
             <Route path='/contactus'>
               <ContactUs />
             </Route>
-
             {/* buyer route  */}
             <Route path='/buyer/wishlist'>
               <BuyerWishlist />
