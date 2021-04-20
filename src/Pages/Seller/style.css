@@ -46,8 +46,8 @@
 }
 
 .SellerLogin-remember {
-    width: 90%;
-    margin-left: 5%;
+    width: 80%;
+    margin-left: 10%;
     display: flex;
     align-items: baseline;
     margin-top: 5%;
@@ -124,4 +124,90 @@
 
 .SellerSignup-input-main {
     flex: 4;
+}
+
+.SellerAddproduct-main {
+}
+
+.SellerAddProduct-body {
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    height: 84vh;
+    width: 96%;
+    background-color: #222222;
+    display: flex;
+}
+
+.SellerAddProduct-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.SellerAddproduct-image {
+    flex: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SellerAddproduct-image-selecter {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+}
+
+.SellerAddproduct-image-content {
+    max-height: 98%;
+    max-width: 98%;
+    margin: 2%;
+}
+
+.SellerAddProduct-right {
+    flex: 1;
+}
+
+.SellerAddProduct-option {
+    width: 90%;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.SellerAddProduct-upload {
+    width: 20%;
+    background-color: #cfabfd;
+    color: black;
+    border-radius: 6px;
+    text-align: center;
+    padding: 1.5%;
+    font-family: Roboto;
+    opacity: 0.9;
+    margin: auto;
+    margin-top: 1%;
+}
+
+.SellerAddProduct-upload:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.SellerAddProduct-upload-body {
+    margin-top: 5%;
+}
+
+.SellerAddProduct-error {
+    color: red;
+    width: 88%;
+    margin: auto;
+}
+
+.SellerAddProduct-progress {
+    width: 80%;
+    margin: auto;
 }
