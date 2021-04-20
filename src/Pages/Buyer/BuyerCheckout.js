@@ -26,7 +26,11 @@ const BuyerCheckout = (props) => {
         </div>
         <hr />
         <div className='BuyerCheckout-confirmdiv'>
-          <input type='checkbox' className='BuyerCheckout-check' />
+          <input
+            type='checkbox'
+            className='BuyerCheckout-check'
+            defaultChecked={false}
+          />
           <span className='BuyerCheckout-confirm'>Confirm Paymant</span>
           <span className='BuyerCheckout-total'>{'Total'}</span>
           <div className='BuyerCheckoutPrice'>{props.price}</div>
@@ -37,7 +41,7 @@ const BuyerCheckout = (props) => {
               <Button icon={backspaceOutline} name={'Cancel'} />
             </Link>
           </div>
-          <div className='BuyerCheckout-button'>
+          <div className='BuyerCheckout-button BuyerCheckout-placeorder'>
             <Link to='./order'>
               <Button icon={checkboxMarkedCircleOutline} name={'Place Order'} />
             </Link>

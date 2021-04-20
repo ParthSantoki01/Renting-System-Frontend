@@ -32,10 +32,12 @@ const BuyerViewProduct = (props) => {
         </div>
         <div className='BuyerViewProduct-sub'>
           <div className='BuyerViewProduct-title'>{props.title}</div>
+          <hr />
           <div className='BuyerViewProduct-pricediv'>
-            <div className='BuyerViewProduct-price'>{props.price}</div>
+            <div className='BuyerViewProduct-pricedivsub'>Price </div>
             <div className='BuyerViewProduct-formatprice'>
-              {props.formatofPrice}
+              <span className='BuyerViewProduct-price'>{props.price} </span>{' '}
+              <span> {props.formatofPrice}</span>
             </div>
           </div>
           <hr />
