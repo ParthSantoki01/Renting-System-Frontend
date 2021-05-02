@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import logo from '../../Assets/logo513.png';
+import logo from '../../Assets/logo512.png';
 import { Link } from 'react-router-dom';
 
 //card for wishlist and myorders
