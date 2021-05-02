@@ -89,6 +89,7 @@
   width: 47%;
   margin: auto;
   margin-bottom: 2%;
+  border-radius: 4px;
 }
 .GeneralCardview-main {
   width: 100%;
@@ -196,6 +197,8 @@
   font-size: 22px;
 }
 
+/* Category Card */
+
 .CategoryCard-main {
   background-color: #2e2e2e;
   height: 40vh;
@@ -259,7 +262,6 @@
 /* Request card  */
 
 .RequestCard-main {
-  /* border: 1px solid red; */
   background-color: #2e2e2e;
   height: 30vh;
   width: 30%;
@@ -276,14 +278,12 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  /* border: 2px solid green; */
   flex: 1;
   margin: 3%;
   margin-bottom: 0;
 }
 
 .RequestCard-mailbody {
-  /* border: red 1px solid; */
   font-size: 18px;
   flex: 1;
   margin: 3%;
@@ -296,7 +296,6 @@
 
 .RequestCard-productbody {
   flex: 1;
-  /* border: blue 1px solid; */
   font-size: 24px;
   text-align: center;
   overflow: hidden;
@@ -306,17 +305,72 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  /* border: 1px solid red; */
 }
 .RequestCard-Buttondiv {
   flex: 1;
   display: flex;
   justify-content: center;
-  /* border: 1px solid greenyellow; */
   width: 90%;
   margin: auto;
-  /* padding-bottom: 1%; */
 }
 .RequestCard-Buttons {
   flex: 1;
+}
+
+/* Seller Active Product card */
+
+.SellerLiveProduct {
+  background-color: #2e2e2e;
+  font-family: Roboto;
+  width: 47%;
+  margin: auto;
+  margin-bottom: 2%;
+  border-radius: 4px;
+}
+.SellerLiveProduct-main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  color: white;
+}
+.SellerLiveProduct:hover {
+  transition: 0.4s;
+  transform: scale(1.03);
+}
+
+.SellerLiveProduct-imagediv {
+  flex: 2;
+  max-height: 25vh;
+}
+.SellerLiveProduct-image {
+  margin: 5%;
+  height: 90%;
+  width: 90%;
+}
+
+.SellerLiveProduct-info {
+  flex: 4;
+  margin-left: 5%;
+}
+.SellerLiveProduct-title {
+  font-size: 36px;
+  padding: 2%;
+  padding-left: 0%;
+}
+.SellerLiveProduct-sub {
+  margin-bottom: 1%;
+}
+.SellerLiveProduct-namediv {
+  display: flex;
+  align-items: baseline;
+  margin-top: 1%;
+}
+.SellerLiveProduct-name {
+  flex: 2;
+  font-size: 18px;
+  color: #cfabfd;
+}
+.SellerLiveProduct-value {
+  flex: 4;
+  font-size: 22px;
 }
