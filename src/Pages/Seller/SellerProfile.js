@@ -1,7 +1,7 @@
 import React from 'react';
 
 const SellerProfile = () => {
-  return <div>Seller Profile</div>;
+  return <div>seller profile</div>;
 };
 
 export default SellerProfile;
