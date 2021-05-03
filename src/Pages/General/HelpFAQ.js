@@ -140,14 +140,12 @@ const HelpFAQ = () => {
             </a>
           </div>
           <div className="ContactUs-namediv">Post Your Query Here!</div>
-          <p className='helpful'><u>Was this helpful?</u></p>
-          <div className='YesNo'> 
-            <div className='YesNo-btn'>Yes</div>
-            <div className='YesNo-btn'>No</div>
-          </div>
+         
         </div>
       </div>
     );
 };
+
+
 
 export default HelpFAQ;

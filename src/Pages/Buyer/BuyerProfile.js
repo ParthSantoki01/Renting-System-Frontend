@@ -1,4 +1,5 @@
 import React from 'react';
+import './style.css';
 import { Icon } from '@iconify/react';
 import TitleHeader from '../../Components/Header/TitleHeader';
 import { Link } from 'react-router-dom';
@@ -6,6 +7,7 @@ import cardAccountDetails from '@iconify-icons/mdi/card-account-details';
 import shoppingIcon from '@iconify-icons/mdi/shopping';
 import heartIcon from '@iconify-icons/mdi/heart';
 import textBoxCheck from '@iconify-icons/mdi/text-box-check';
+import lockOutline from '@iconify-icons/mdi/lock-outline';
 
 const BuyerProfile = (props) => {
   return (
@@ -62,6 +64,24 @@ const BuyerProfile = (props) => {
             <div className='BuyerProfile-title'>Live Order</div>
           </div>
         </Link>
+      </div>
+      <div className='BuyerProfile-changepassword redi'>
+        <div className='changepassword-input-body'>
+          <Icon icon={lockOutline} className='changepassword-image' />
+          <div className='changepassword-title'> Update Password</div>
+        </div>
+        <div className='changepassword-buttonbody'>
+          <div className='change-input'>
+            <input
+              type={'text'}
+              placeholder={'Enter a new Password'}
+              className='changepassword-input'
+            />
+          </div>
+          <div className='changepassword-button'>
+            <div className='changepassword-btn'>Update</div>
+          </div>
+        </div>
       </div>
     </div>
   );
