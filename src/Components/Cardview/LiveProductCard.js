@@ -30,8 +30,8 @@ const Cardview = (props) => {
                 <div className='LiveProductCard-value'>{props.seller}</div>
               </div>
               <div className='LiveProductCard-namediv'>
-                <div className='LiveProductCard-name'>Return Data</div>
-                <div className='LiveProductCard-value'>{props.returnData}</div>
+                <div className='LiveProductCard-name'>Return Date</div>
+                <div className='LiveProductCard-value'>{props.returnDate}</div>
               </div>
             </div>
           </div>
@@ -47,7 +47,7 @@ Cardview.defaultProps = {
   format: '/month',
   category: 'Camera',
   seller: 'john doe',
-  returnData: '21/04/2021',
+  returnDate: '21/04/2021',
 };
 
 export default Cardview;

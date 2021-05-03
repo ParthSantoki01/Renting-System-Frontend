@@ -38,16 +38,12 @@ const optionsAlert = {
 };
 
 function App() {
-    console.log(localStorage.getItem('auth_token'));
-    console.log(localStorage.getItem('buyer'));
-
     const [check, setCheck] = useState(0);
     const [buyer, setBuyer] = useState(false);
     const [seller, setSeller] = useState(false);
     const [auth_token, setAuthtoken] = useState('');
 
     useEffect(() => {
-        console.log(check);
         if (localStorage.getItem('buyer')) {
             setBuyer(true);
             setCheck(BUYER_LOGIN);
@@ -62,21 +58,26 @@ function App() {
     }, []);
 
     const handleChangeState = () => {
-        console.log('Clicked');
         if (localStorage.getItem('buyer')) {
             setBuyer(true);
             setCheck(BUYER_LOGIN);
-            console.log('Buyer');
         } else if (localStorage.getItem('seller')) {
             setSeller(true);
             setCheck(SELLER_LOGIN);
-            console.log('Seller');
         } else {
             setBuyer(false);
             setSeller(false);
             setCheck(NOT_LOGIN);
-            console.log('Not');
         }
+    };
+
+    const handleSignout = () => {
+        localStorage.removeItem('buyer');
+        localStorage.removeItem('auth_token');
+        localStorage.removeItem('seller');
+        setBuyer(false);
+        setSeller(false);
+        setCheck(NOT_LOGIN);
     };
 
     return (
@@ -118,7 +119,7 @@ function App() {
                                 <BuyerProfile />
                             </Route>
                             <Route path='/buyer/signout'>
-                                <SignOut />
+                                <SignOut handleClick={handleSignout} />
                                 {/* we will implement function here  */}
                             </Route>
                             <Route path='/buyer/login'>
@@ -155,7 +156,7 @@ function App() {
                                 <SellerProfile />
                             </Route>
                             <Route path='/seller/signout'>
-                                <SignOut />
+                                <SignOut handleClick={handleSignout} />
                             </Route>
                             <Route path='/seller/login'>
                                 <SellerLogin handleClick={handleChangeState} />

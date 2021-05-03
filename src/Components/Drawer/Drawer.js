@@ -17,7 +17,6 @@ import layersIcon from '@iconify-icons/mdi/layers';
 import mapMarkerRadius from '@iconify-icons/mdi/map-marker-radius';
 import layersPlus from '@iconify-icons/mdi/layers-plus';
 import textBoxCheck from '@iconify-icons/mdi/text-box-check';
-import layersMinus from '@iconify-icons/mdi/layers-minus';
 
 const Drawer = (props) => {
     return (
@@ -100,12 +99,6 @@ const Drawer = (props) => {
                                     text={'Add Product'}
                                 />
                             </Link>
-                            <Link to='/seller/manage'>
-                                <DrawerButton
-                                    icon={layersMinus}
-                                    text={'Manage Products'}
-                                />
-                            </Link>
                             <Link to='/seller/active'>
                                 <DrawerButton
                                     icon={shoppingIcon}
@@ -115,7 +108,7 @@ const Drawer = (props) => {
                             <Link to='/seller/myproducts'>
                                 <DrawerButton
                                     icon={walletIcon}
-                                    text={'My All Products'}
+                                    text={'My Products'}
                                 />
                             </Link>
                             <Link to='/seller/request'>
