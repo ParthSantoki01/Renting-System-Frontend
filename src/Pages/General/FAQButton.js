@@ -7,8 +7,4 @@ const FAQCard = (props) => {
     </div>
   );
 };
-FAQCard.defaultProps = {
-  title: 'Buyer FAQs',
-};
-
 export default FAQCard;
