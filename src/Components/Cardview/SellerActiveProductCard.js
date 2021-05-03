@@ -30,7 +30,7 @@ const SellerCardView = (props) => {
                 <div className='SellerLiveProduct-value'>{props.seller}</div>
               </div>
               <div className='SellerLiveProduct-namediv'>
-                <div className='SellerLiveProduct-name'>End-Data</div>
+                <div className='SellerLiveProduct-name'>End-Date</div>
                 <div className='SellerLiveProduct-value'>
                   {props.returnData}
                 </div>

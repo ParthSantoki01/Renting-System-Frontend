@@ -126,6 +126,8 @@
   flex: 4;
 }
 
+/* Seller add Product */
+
 .SellerAddProduct-body {
   margin: auto;
   margin-top: 2%;
@@ -134,6 +136,7 @@
   width: 96%;
   background-color: #222222;
   display: flex;
+  border-radius: 8px;
 }
 
 .SellerAddProduct-left {
@@ -167,6 +170,7 @@
 
 .SellerAddProduct-right {
   flex: 1;
+  padding-top: 2%;
 }
 
 .SellerAddProduct-option {
