@@ -34,7 +34,7 @@ const Drawer = (props) => {
             <DrawerButton icon={layersIcon} text={'All Products'} />
           </Link>
           <Link to='/category'>
-            <DrawerButton icon={shapeIcon} text={'Filter'} />
+            <DrawerButton icon={shapeIcon} text={'Category'} />
           </Link>
           {props.page === NOT_LOGIN && (
             <React.Fragment>
@@ -72,9 +72,6 @@ const Drawer = (props) => {
             <React.Fragment>
               <Link to='/seller/addproduct'>
                 <DrawerButton icon={layersPlus} text={'Add Product'} />
-              </Link>
-              <Link to='/seller/manage'>
-                <DrawerButton icon={layersMinus} text={'Manage Products'} />
               </Link>
               <Link to='/seller/active'>
                 <DrawerButton icon={shoppingIcon} text={'Active Products'} />
