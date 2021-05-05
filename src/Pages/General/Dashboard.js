@@ -6,13 +6,13 @@ import './style.css';
 
 const Dashboard = () => {
   const [Products, setData] = useState([]);
+
   useEffect(() => {
     const fetch = () => {
       axios
-        .get('http://localhost:5000/product/')
+        .get('https://rentingsystem.herokuapp.com/product')
         .then((response) => {
           setData(response.data.product);
-          // console.log(response.data);
         })
         .catch((e) => {
           console.log(e);

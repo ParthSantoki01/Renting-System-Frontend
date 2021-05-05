@@ -144,9 +144,7 @@ function App() {
               <Route path='/seller/addproduct'>
                 <SellerAddProduct />
               </Route>
-              <Route path='/seller/manage'>
-                <SellerManageProduct />
-              </Route>
+
               <Route path='/seller/active'>
                 <SellerActiveProduct />
               </Route>
@@ -169,6 +167,9 @@ function App() {
                 <SellerSignup />
               </Route>
               {/* below are not in button  */}
+              <Route path='/seller/manage'>
+                <SellerManageProduct />
+              </Route>
               <Route path='/seller/product'>
                 <SellerViewProduct />
               </Route>
