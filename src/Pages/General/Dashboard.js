@@ -5,33 +5,33 @@ import ProductCard from '../../Components/Cardview/ProductCard';
 import './style.css';
 
 const Dashboard = () => {
-  const [Products, setData] = useState([]);
-  useEffect(() => {
-    const fetch = () => {
-      axios
-        .get('http://localhost:5000/product/buyer')
-        .then((response) => {
-          setData(response.data);
-          // console.log(response.data);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    };
+    const [Products, setData] = useState([]);
 
-    fetch();
-  }, []);
+    useEffect(() => {
+        const fetch = () => {
+            axios
+                .get('https://rentingsystem.herokuapp.com/product')
+                .then((response) => {
+                    setData(response.data.product);
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
+        };
 
-  return (
-    <div className='Dashboard'>
-      <SearchHeader />
-      <div className='Main-card'>
-        {Products.map((product) => {
-          return <ProductCard key={product._id} product={product} />;
-        })}
-      </div>
-    </div>
-  );
+        fetch();
+    }, []);
+
+    return (
+        <div className='Dashboard'>
+            <SearchHeader />
+            <div className='Main-card'>
+                {Products.map((product) => {
+                    return <ProductCard key={product._id} product={product} />;
+                })}
+            </div>
+        </div>
+    );
 };
 
 export default Dashboard;
