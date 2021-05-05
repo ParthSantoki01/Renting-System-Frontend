@@ -144,7 +144,6 @@ function App() {
               <Route path='/seller/addproduct'>
                 <SellerAddProduct />
               </Route>
-
               <Route path='/seller/active'>
                 <SellerActiveProduct />
               </Route>

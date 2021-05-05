@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import deleteIcon from '@iconify-icons/mdi/delete';
 import layersMinus from '@iconify-icons/mdi/layers-minus';
 import { Icon } from '@iconify/react';
+
 const Cardview = (props) => {
   return (
     <div className='GeneralCardviewSeller'>

@@ -11,7 +11,7 @@ const CategoryPage = (props) => {
   useEffect(() => {
     const fetch = () => {
       axios
-        .get('http://localhost:5000/product/')
+        .get('https://rentingsystem.herokuapp.com/product/')
         .then((response) => {
           setData(response.data.product);
         })
