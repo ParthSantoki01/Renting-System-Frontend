@@ -11,8 +11,6 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { useAlert } from 'react-alert';
 
-// submit, seller, imagepath, availabe;
-
 const SellerAddProduct = () => {
     const alert = useAlert();
     let history = useHistory();
