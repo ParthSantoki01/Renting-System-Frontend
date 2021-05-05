@@ -5,6 +5,7 @@ import { NOT_LOGIN, BUYER_LOGIN, SELLER_LOGIN } from './Assets/Constant';
 import Drawer from './Components/Drawer/Drawer';
 import Dashboard from './Pages/General/Dashboard';
 import Category from './Pages/General/Category';
+import CategoryPage from './Pages/General/CategoryPage';
 import SignOut from './Pages/General/SignOut';
 import HelFAQ from './Pages/General/HelpFAQ';
 import ContactUs from './Pages/General/ContactUs';
@@ -38,7 +39,7 @@ const optionsAlert = {
 };
 
 function App() {
-  const [check, setCheck] = useState(1);
+  const [check, setCheck] = useState(0);
   const [buyer, setBuyer] = useState(false);
   const [seller, setSeller] = useState(false);
   const [auth_token, setAuthtoken] = useState('');
@@ -95,6 +96,9 @@ function App() {
               </Route>
               <Route path='/category'>
                 <Category />
+              </Route>
+              <Route path='/categorypage'>
+                <CategoryPage />
               </Route>
               <Route path='/help'>
                 <HelFAQ />

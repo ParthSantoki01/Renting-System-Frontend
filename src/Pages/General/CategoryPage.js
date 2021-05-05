@@ -3,8 +3,10 @@ import axios from 'axios';
 import SearchHeader from '../../Components/Header/SearchHeader';
 import ProductCard from '../../Components/Cardview/ProductCard';
 import './style.css';
+import { useLocation } from 'react-router-dom';
+const CategoryPage = (props) => {
+  let location = useLocation();
 
-const Dashboard = () => {
   const [Products, setData] = useState([]);
   useEffect(() => {
     const fetch = () => {
@@ -12,7 +14,6 @@ const Dashboard = () => {
         .get('http://localhost:5000/product/')
         .then((response) => {
           setData(response.data.product);
-          // console.log(response.data);
         })
         .catch((e) => {
           console.log(e);
@@ -27,11 +28,14 @@ const Dashboard = () => {
       <SearchHeader />
       <div className='Main-card'>
         {Products.map((product) => {
-          return <ProductCard key={product._id} product={product} />;
+          if (product.category == location.state)
+            return <ProductCard key={product._id} product={product} />;
         })}
       </div>
     </div>
   );
 };
-
-export default Dashboard;
+CategoryPage.defaultProps = {
+  category: 'House',
+};
+export default CategoryPage;
