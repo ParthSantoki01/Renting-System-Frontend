@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './style.css';
 import { Icon } from '@iconify/react';
 import TitleHeader from '../../Components/Header/TitleHeader';
@@ -9,7 +10,28 @@ import heartIcon from '@iconify-icons/mdi/heart';
 import textBoxCheck from '@iconify-icons/mdi/text-box-check';
 import lockOutline from '@iconify-icons/mdi/lock-outline';
 
-const BuyerProfile = (props) => {
+const BuyerProfile = () => {
+  const [Buyer, setData] = useState([]);
+  useEffect(() => {
+    const fetch = () => {
+      axios
+        .get('https://rentingsystem.herokuapp.com/buyer/detail', {
+          headers: {
+            auth_token: localStorage.getItem('auth_token'),
+          },
+        })
+        .then((response) => {
+          console.log(response.data.buyer[0]);
+          setData(response.data.buyer[0]);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    };
+
+    fetch();
+  }, []);
+
   return (
     <div className='BuyerProfile-page'>
       <TitleHeader name={'My Profile'} />
@@ -21,22 +43,18 @@ const BuyerProfile = (props) => {
         <div className='BuyerProfile-sub'>
           <div className='BuyerProfile-namediv'>
             <div className='BuyerProfile-hello'> Hello, </div>
-            <div className='BuyerProfile-name'> {props.name}</div>
+            <div className='BuyerProfile-name'>
+              {Buyer.firstname + ' ' + Buyer.lastname}
+            </div>
           </div>
           <div className='BuyerProfile-details'>
-            <div className='BuyerProfile-addressdiv'>
+            <div className='BuyerProfile-addressdiv1'>
               <div className='BuyerProfile-dis'>Address</div>
-              <div>{props.address}</div>
+              <div>{Buyer.address}</div>
             </div>
-            <div className='BuyerProfile-mobilenumberdiv'>
-              <div className='BuyerProfile-sub2'>
-                <div className='BuyerProfile-dis'>Mobile Number</div>
-                <div>{props.mobilenumber}</div>
-              </div>
-              <div className='BuyerProfile-sub2'>
-                <div className='BuyerProfile-dis'>E-mail</div>
-                <div>{props.email}</div>
-              </div>
+            <div className='BuyerProfile-addressdiv2'>
+              <div className='BuyerProfile-dis'>E-mail</div>
+              <div>{Buyer.email}</div>
             </div>
           </div>
         </div>

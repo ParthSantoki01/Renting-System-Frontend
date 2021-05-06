@@ -15,6 +15,9 @@ const Button = (props) => {
       if (props.name === 'Wishlist') {
         return;
       }
+      if (props.name === 'Request') {
+        return;
+      }
       return history.push('./../');
     }
   };

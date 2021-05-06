@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './style.css';
 import { Link, useLocation } from 'react-router-dom';
@@ -40,6 +40,55 @@ const BuyerViewProduct = (props) => {
         console.log(e);
       });
   };
+
+  // Press Request Page for Get SELLER ADDRESS
+  const AddRequest = () => {
+    axios
+      .get('https://rentingsystem.herokuapp.com/buyer/detail', {
+        headers: {
+          auth_token: localStorage.getItem('auth_token'),
+        },
+      })
+      .then((response) => {
+        axios
+          .post('https://rentingsystem.herokuapp.com/buyer/request', {
+            buyer: response.data.buyer[0]._id,
+            seller: location.state.seller,
+          })
+          .then((response) => {
+            const data = response.data;
+            console.log(response);
+            if (data.error) {
+              alert.error(data.msg);
+            } else {
+              alert.success(data.msg);
+            }
+          });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
+  // GET SELLER NAME FROM SELLER ID
+  const [Seller, setData] = useState([]);
+  useEffect(() => {
+    const fetch = () => {
+      axios
+        .get(
+          'https://rentingsystem.herokuapp.com/seller/getname/' +
+            location.state.seller
+        )
+        .then((response) => {
+          setData(response.data.data[0]);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    };
+
+    fetch();
+  }, []);
   return (
     <div className='BuyerViewProduct-main'>
       <TitleHeader name={'View Product'} />
@@ -90,10 +139,14 @@ const BuyerViewProduct = (props) => {
           <div className='BuyerViewProduct-seller-details'>
             <div className='BuyerViewProduct-seller'>{'Seller'}</div>
             <div className='BuyerViewProduct-sellername'>
-              {location.state.seller}
+              {Seller.firstname + ' ' + Seller.lastname}
             </div>
             <div className='BuyerViewProduct-seller-button'>
-              <Button icon={mapMarkerPlus} name={'Request'} />
+              <Button
+                icon={mapMarkerPlus}
+                name={'Request'}
+                handleClick={AddRequest}
+              />
             </div>
           </div>
           <hr />

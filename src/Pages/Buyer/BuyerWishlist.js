@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import GeneralCard from '../../Components/Cardview/GeneralCard';
 import TitleHeader from '../../Components/Header/TitleHeader';
+import { useAlert } from 'react-alert';
 
 const BuyerWishlist = () => {
+  const alert = useAlert();
   const [Products, setData] = useState([]);
   useEffect(() => {
     const fetch = () => {
@@ -19,7 +21,13 @@ const BuyerWishlist = () => {
               buyer: response.data.buyer[0]._id,
             })
             .then((response) => {
-              setData(response.data.data);
+              // console.log(response);
+              if (response.data.error) {
+                alert.error(response.data.msg);
+                setData([]);
+              } else {
+                setData(response.data.data);
+              }
             })
             .catch((e) => {
               console.log(e);

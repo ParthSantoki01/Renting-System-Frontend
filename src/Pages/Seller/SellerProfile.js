@@ -1,5 +1,5 @@
-import React from 'react';
-import './style.css';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Icon } from '@iconify/react';
 import TitleHeader from '../../Components/Header/TitleHeader';
 import { Link } from 'react-router-dom';
@@ -9,7 +9,28 @@ import layersPlus from '@iconify-icons/mdi/layers-plus';
 import walletIcon from '@iconify-icons/mdi/wallet';
 import lockOutline from '@iconify-icons/mdi/lock-outline';
 
-const SellerProfile = (props) => {
+const SellerProfile = () => {
+  const [Seller, setData] = useState([]);
+  useEffect(() => {
+    const fetch = () => {
+      axios
+        .get('https://rentingsystem.herokuapp.com/seller/detail', {
+          headers: {
+            'auth-token': localStorage.getItem('auth_token'),
+          },
+        })
+        .then((response) => {
+          console.log(response.data.seller[0]);
+          setData(response.data.seller[0]);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    };
+
+    fetch();
+  }, []);
+
   return (
     <div className='SellerProfile-page'>
       <TitleHeader name={'My Profile'} />
@@ -21,22 +42,19 @@ const SellerProfile = (props) => {
         <div className='SellerProfile-sub'>
           <div className='SellerProfile-namediv'>
             <div className='SellerProfile-hello'> Hello, </div>
-            <div className='SellerProfile-name'> {props.name}</div>
+            <div className='SellerProfile-name'>
+              {' '}
+              {Seller.firstname + ' ' + Seller.lastname}
+            </div>
           </div>
           <div className='SellerProfile-details'>
-            <div className='SellerProfile-addressdiv'>
+            <div className='SellerProfile-addressdiv1'>
               <div className='SellerProfile-dis'>Address</div>
-              <div>{props.address}</div>
+              <div>{Seller.address}</div>
             </div>
-            <div className='SellerProfile-mobilenumberdiv'>
-              <div className='SellerProfile-sub2'>
-                <div className='SellerProfile-dis'>Mobile Number</div>
-                <div>{props.mobilenumber}</div>
-              </div>
-              <div className='SellerProfile-sub2'>
-                <div className='SellerProfile-dis'>E-mail</div>
-                <div>{props.email}</div>
-              </div>
+            <div className='SellerProfile-addressdiv2'>
+              <div className='SellerProfile-dis'>E-mail</div>
+              <div>{Seller.email}</div>
             </div>
           </div>
         </div>
