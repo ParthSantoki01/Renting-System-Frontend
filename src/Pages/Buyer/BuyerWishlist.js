@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import GeneralCard from '../../Components/Cardview/GeneralCard';
 import TitleHeader from '../../Components/Header/TitleHeader';
+import { useAlert } from 'react-alert';
 
 const BuyerWishlist = () => {
+  const alert = useAlert();
   const [Products, setData] = useState([]);
-  let flag=1;
   useEffect(() => {
     const fetch = () => {
       axios
@@ -20,16 +21,13 @@ const BuyerWishlist = () => {
               buyer: response.data.buyer[0]._id,
             })
             .then((response) => {
-              if(response.data==='No items in the Wishlist')
-              {
-                  setData([]);
+              // console.log(response);
+              if (response.data.error) {
+                alert.error(response.data.msg);
+                setData([]);
+              } else {
+                setData(response.data.data);
               }
-              else
-              {
-              setData(response.data.data);
-              console.log(response.data)
-              }
-              
             })
             .catch((e) => {
               console.log(e);
@@ -41,16 +39,15 @@ const BuyerWishlist = () => {
     };
 
     fetch();
-  }, []);
+  }, [alert]);
 
   return (
     <div className='BuyerWishlist-page'>
       <TitleHeader name={'My Wishlist'} />
       <div className='BuyerWishlist-card'>
-      {
-            Products.map((product) => {
-            return <GeneralCard key={product._id} product={product} />;
-          })}
+        {Products.map((product) => {
+          return <GeneralCard key={product._id} product={product} />;
+        })}
       </div>
     </div>
   );

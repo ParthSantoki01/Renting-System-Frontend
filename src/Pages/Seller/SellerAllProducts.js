@@ -16,7 +16,6 @@ const SellerAllproducts = () => {
           },
         })
         .then((response) => {
-          // setSeller(response.data.seller[0]._id);
           axios
             .post('https://rentingsystem.herokuapp.com/seller/myproducts', {
               seller_id: response.data.seller[0]._id,
