@@ -53,11 +53,13 @@
   margin: 1%;
   margin-bottom: 0;
   display: flex;
+  flex-direction: column;
 }
 
 .AddressCard-name-body {
   flex: 1;
   overflow: hidden;
+  border: 1px solid red;
 }
 
 .AddressCard-name {
@@ -65,14 +67,31 @@
   margin: 0;
   margin-left: 8px;
   margin-top: 8px;
-  font-size: larger;
+  font-size: xx-large;
   color: #bb86fc;
 }
+.AddressCard-email-body {
+  flex: 1;
+  overflow: hidden;
+  border: 1px solid red;
+  margin-top: 1%;
+}
 
+.AddressCard-emal {
+  padding: 0;
+  margin: 0;
+  margin-left: 8px;
+  margin-top: 8px;
+  font-size: x-large;
+  color: white;
+}
 .AddressCard-address-body {
   flex: 3;
   height: 15vh;
   overflow-y: auto;
+  border: 1px solid red;
+  margin-top: 1%;
+  padding-bottom: 2%;
 }
 
 .AddressCard-address {
@@ -81,6 +100,7 @@
   margin-left: 8px;
   margin-top: 8px;
   color: white;
+  font-size: large;
 }
 
 /************** General card(for wishlist)***********************/
