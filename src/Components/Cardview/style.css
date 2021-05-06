@@ -431,6 +431,9 @@
   background-color: #cfabfd;
   border-radius: 4px;
 }
+.GeneralCardviewSeller-button:hover {
+  cursor: pointer;
+}
 .GeneralCardviewSeller-Buttonbody {
   display: flex;
   color: #994af1;

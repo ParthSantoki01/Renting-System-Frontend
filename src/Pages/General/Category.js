@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React from 'react';
 import CategoryCard from '../../Components/Cardview/CategoryCard';
 import TitleHeader from '../../Components/Header/TitleHeader';
 import warehouseIcon from '@iconify-icons/mdi/warehouse';

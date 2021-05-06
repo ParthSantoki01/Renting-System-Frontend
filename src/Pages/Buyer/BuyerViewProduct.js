@@ -8,13 +8,13 @@ import Button from '../../Components/Button/Button';
 import heartIcon from '@iconify-icons/mdi/heart';
 import cartIcon from '@iconify-icons/mdi/cart';
 import mapMarkerPlus from '@iconify-icons/mdi/map-marker-plus';
-import { useHistory } from 'react-router-dom';
 import { useAlert } from 'react-alert';
+import { useHistory } from 'react-router-dom';
 
 const BuyerViewProduct = (props) => {
   let location = useLocation();
-  let history = useHistory();
   const alert = useAlert();
+  let history = useHistory();
   // console.log(location.state);
   const Addtowishlist = () => {
     axios
@@ -26,13 +26,14 @@ const BuyerViewProduct = (props) => {
       .then((response) => {
         axios.post('https://rentingsystem.herokuapp.com/buyer/updateWishlist', {
           buyer: response.data.buyer[0]._id,
-          product: location.state._id,
+          product_id: location.state._id,
         });
         const data = response.data;
         if (data.error) {
-          alert.error(data.msg);
+          alert.error('Error');
         } else {
-          alert.success(data.msg);
+          alert.success('Added to wishlist');
+          history.push('./wishlist');
         }
       })
       .catch((e) => {
@@ -52,13 +53,11 @@ const BuyerViewProduct = (props) => {
             />
             <div className='BuyerViewProduct-buttons'>
               <div className='BuyerViewProduct-button'>
-                {/* <Link to='./wishlist'> */}
                 <Button
                   icon={heartIcon}
                   name={'Wishlist'}
                   handleClick={Addtowishlist}
                 />
-                {/* </Link> */}
               </div>
               <div className='BuyerViewProduct-button'>
                 <Link to='./checkout'>
@@ -77,7 +76,7 @@ const BuyerViewProduct = (props) => {
               <span className='BuyerViewProduct-price'>
                 {location.state.price}{' '}
               </span>{' '}
-              <span> {location.state.formatofPrice}</span>
+              <span> {location.state.formatofprice}</span>
             </div>
           </div>
           <hr />

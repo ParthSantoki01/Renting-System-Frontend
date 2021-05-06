@@ -19,7 +19,7 @@ const BuyerWishlist = () => {
               buyer: response.data.buyer[0]._id,
             })
             .then((response) => {
-              setData(response.data.product);
+              setData(response.data.data);
             })
             .catch((e) => {
               console.log(e);
