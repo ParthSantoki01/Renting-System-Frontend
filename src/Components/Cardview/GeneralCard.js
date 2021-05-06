@@ -24,7 +24,7 @@ const Cardview = (props) => {
     };
 
     fetch();
-  }, []);
+  }, [product]);
 
   return (
     <div className='GeneralCardview'>

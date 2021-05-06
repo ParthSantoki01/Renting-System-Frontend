@@ -1,5 +1,4 @@
 import React from 'react';
-// import axios from 'axios';
 import './style.css';
 import { Icon } from '@iconify/react';
 import { useHistory } from 'react-router-dom';
@@ -12,10 +11,12 @@ const Button = (props) => {
         return history.push('./../');
       }
       props.handleClick();
-      if (props.name === 'Wishlist') {
-        return;
-      }
-      if (props.name === 'Request') {
+      if (
+        props.name === 'Wishlist' ||
+        props.name === 'Accept' ||
+        props.name === 'Decline' ||
+        props.name === 'Request'
+      ) {
         return;
       }
       return history.push('./../');

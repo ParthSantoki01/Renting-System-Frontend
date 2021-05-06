@@ -88,7 +88,7 @@ const BuyerViewProduct = (props) => {
     };
 
     fetch();
-  }, []);
+  }, [location]);
   return (
     <div className='BuyerViewProduct-main'>
       <TitleHeader name={'View Product'} />
@@ -96,7 +96,7 @@ const BuyerViewProduct = (props) => {
         <div className='BuyerViewProduct-imagediv'>
           <div className='BuyerViewProduct-imagesub'>
             <img
-              src={location.state.imagepath}
+              src={location.state.imagepath || logo}
               className='BuyerViewProduct-image'
               alt={'logo'}
             />

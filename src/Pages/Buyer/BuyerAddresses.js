@@ -40,7 +40,7 @@ const BuyerAddresses = () => {
     };
 
     fetch();
-  }, []);
+  }, [alert]);
 
   return (
     <div className='BuyerAddresses-main'>

@@ -39,7 +39,7 @@ const BuyerWishlist = () => {
     };
 
     fetch();
-  }, []);
+  }, [alert]);
 
   return (
     <div className='BuyerWishlist-page'>
