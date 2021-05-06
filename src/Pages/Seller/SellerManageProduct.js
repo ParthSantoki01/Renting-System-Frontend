@@ -37,7 +37,7 @@ const SellerManageProduct = () => {
         setDescription(product.description);
         setPrice(product.price);
         setSeller(product.seller);
-    }, []);
+    }, [product]);
 
     const handleInputChanges = (event) => {
         if (event.target.files[0]) {
