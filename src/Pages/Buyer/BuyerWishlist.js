@@ -5,6 +5,7 @@ import TitleHeader from '../../Components/Header/TitleHeader';
 
 const BuyerWishlist = () => {
   const [Products, setData] = useState([]);
+  let flag=1;
   useEffect(() => {
     const fetch = () => {
       axios
@@ -19,7 +20,16 @@ const BuyerWishlist = () => {
               buyer: response.data.buyer[0]._id,
             })
             .then((response) => {
+              if(response.data==='No items in the Wishlist')
+              {
+                  setData([]);
+              }
+              else
+              {
               setData(response.data.data);
+              console.log(response.data)
+              }
+              
             })
             .catch((e) => {
               console.log(e);
@@ -37,9 +47,10 @@ const BuyerWishlist = () => {
     <div className='BuyerWishlist-page'>
       <TitleHeader name={'My Wishlist'} />
       <div className='BuyerWishlist-card'>
-        {Products.map((product) => {
-          return <GeneralCard key={product._id} product={product} />;
-        })}
+      {
+            Products.map((product) => {
+            return <GeneralCard key={product._id} product={product} />;
+          })}
       </div>
     </div>
   );
