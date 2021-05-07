@@ -3,8 +3,11 @@ import axios from 'axios';
 import './style.css';
 import RequestCard from '../../Components/Cardview/RequestCard';
 import TitleHeader from '../../Components/Header/TitleHeader';
+import { useAlert } from 'react-alert';
 
 const SellerHandleRequests = (props) => {
+    const alert = useAlert();
+
     const [requests, setRequests] = useState([]);
     const [seller, setSeller] = useState('');
 
@@ -17,6 +20,11 @@ const SellerHandleRequests = (props) => {
                     },
                 })
                 .then((response) => {
+                    const data = response.data;
+                    if (data.error) {
+                        alert.error(data.msg);
+                        return;
+                    }
                     setSeller(response.data.seller[0]._id);
                     axios
                         .post(
@@ -26,8 +34,12 @@ const SellerHandleRequests = (props) => {
                             }
                         )
                         .then((response) => {
-                            setRequests(response.data.data);
-                            console.log(response.data.data);
+                            const data = response.data;
+                            if (data.error) {
+                                alert.error(data.msg);
+                            } else {
+                                setRequests(data.data);
+                            }
                         })
                         .catch((e) => {
                             console.log(e);
@@ -39,7 +51,7 @@ const SellerHandleRequests = (props) => {
         };
 
         fetch();
-    }, []);
+    }, [alert]);
 
     return (
         <div className='BuyerAddresses-main'>

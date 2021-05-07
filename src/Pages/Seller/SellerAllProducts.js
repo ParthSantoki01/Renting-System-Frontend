@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import GeneralCardSeller from '../../Components/Cardview/GeneralCardSeller';
 import TitleHeader from '../../Components/Header/TitleHeader';
+import { useAlert } from 'react-alert';
 
 const SellerAllproducts = () => {
+    const alert = useAlert();
+
     const [Products, setData] = useState([]);
 
     useEffect(() => {
@@ -15,6 +18,11 @@ const SellerAllproducts = () => {
                     },
                 })
                 .then((response) => {
+                    const data = response.data;
+                    if (data.error) {
+                        alert.error(data.msg);
+                        return;
+                    }
                     axios
                         .post(
                             'https://rentingsystem.herokuapp.com/seller/myproducts',
@@ -23,8 +31,12 @@ const SellerAllproducts = () => {
                             }
                         )
                         .then((response) => {
-                            setData(response.data.data);
-                            console.log(response.data.data);
+                            const data = response.data;
+                            if (data.error) {
+                                alert.error(data.msg);
+                            } else {
+                                setData(data.data);
+                            }
                         })
                         .catch((e) => {
                             console.log(e);
@@ -36,7 +48,8 @@ const SellerAllproducts = () => {
         };
 
         fetch();
-    }, []);
+    }, [alert]);
+
     return (
         <div>
             <TitleHeader name={'My Products'} />

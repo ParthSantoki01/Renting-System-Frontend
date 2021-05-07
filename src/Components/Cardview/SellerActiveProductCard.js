@@ -7,6 +7,7 @@ import axios from 'axios';
 const SellerActiveProductCard = (props) => {
     const [product, setProduct] = useState({});
     const [buyer, setBuyer] = useState({});
+
     useEffect(() => {
         const fetch = () => {
             axios
@@ -15,14 +16,24 @@ const SellerActiveProductCard = (props) => {
                         props.order.productid
                 )
                 .then((response) => {
-                    setProduct(response.data.product);
+                    const data = response.data;
+                    if (data.error) {
+                        alert.error(data.msg);
+                        return;
+                    }
+                    setProduct(data.product);
                     axios
                         .get(
                             'https://rentingsystem.herokuapp.com/buyer/getname/' +
                                 props.order.buyerid
                         )
                         .then((response) => {
-                            setBuyer(response.data.data[0]);
+                            const data = response.data;
+                            if (data.error) {
+                                alert.error(data.msg);
+                            } else {
+                                setBuyer(data.data[0]);
+                            }
                         })
                         .catch((e) => {
                             console.log(e);
@@ -34,6 +45,7 @@ const SellerActiveProductCard = (props) => {
         };
         fetch();
     }, [props.order]);
+
     return (
         <div className='SellerLiveProduct'>
             <Link to={{ pathname: '/seller/product', state: product }}>

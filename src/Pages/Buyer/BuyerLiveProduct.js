@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import LiveProductCard from '../../Components/Cardview/LiveProductCard';
 import TitleHeader from '../../Components/Header/TitleHeader';
 import axios from 'axios';
+import { useAlert } from 'react-alert';
 
 const BuyerLiveProduct = () => {
+    const alert = useAlert();
+
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
@@ -15,13 +18,23 @@ const BuyerLiveProduct = () => {
                     },
                 })
                 .then((response) => {
+                    const data = response.data;
+                    if (data.error) {
+                        alert.error(data.msg);
+                        return;
+                    }
                     axios
                         .get(
                             'https://rentingsystem.herokuapp.com/order/buyer/' +
                                 response.data.buyer[0]._id
                         )
                         .then((response) => {
-                            setOrders(response.data.orders);
+                            const data = response.data;
+                            if (data.error) {
+                                alert.error(data.msg);
+                            } else {
+                                setOrders(response.data.orders);
+                            }
                         })
                         .catch((e) => {
                             console.log(e);
@@ -32,7 +45,8 @@ const BuyerLiveProduct = () => {
                 });
         };
         fetch();
-    }, []);
+    }, [alert]);
+
     return (
         <div>
             <TitleHeader name={'Live Order'} />
