@@ -9,9 +9,16 @@ import shoppingIcon from '@iconify-icons/mdi/shopping';
 import heartIcon from '@iconify-icons/mdi/heart';
 import textBoxCheck from '@iconify-icons/mdi/text-box-check';
 import lockOutline from '@iconify-icons/mdi/lock-outline';
+import { useAlert } from 'react-alert';
 
 const BuyerProfile = () => {
   const [Buyer, setData] = useState([]);
+  const [password, setPassword] = useState('');
+  const handlePassword = (event) => {
+    setPassword(event.target.value);
+};
+
+
   useEffect(() => {
     const fetch = () => {
       axios
@@ -21,7 +28,7 @@ const BuyerProfile = () => {
           },
         })
         .then((response) => {
-          console.log(response.data.buyer[0]);
+          //console.log(response.data.buyer[0]);
           setData(response.data.buyer[0]);
         })
         .catch((e) => {
@@ -31,6 +38,24 @@ const BuyerProfile = () => {
 
     fetch();
   }, []);
+
+  const handleOnClick = () => {
+    axios
+        .post('https://rentingsystem.herokuapp.com/buyer/forgot', {
+          password : password,
+        })
+        .then(function (response) {
+            const data = response.data;
+            if (data.error) {
+                alert.error(data.msg);
+            } else {
+                alert.success(data.msg);
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+  };
 
   return (
     <div className='BuyerProfile-page'>
@@ -91,13 +116,14 @@ const BuyerProfile = () => {
         <div className='changepassword-buttonbody'>
           <div className='change-input'>
             <input
-              type={'text'}
+              type={'password'}
               placeholder={'Enter a new Password'}
               className='changepassword-input'
+              handleInput={handlePassword}
             />
           </div>
           <div className='changepassword-button'>
-            <div className='changepassword-btn'>Update</div>
+            <div className='changepassword-btn' onClick={handleOnClick}>Update</div>
           </div>
         </div>
       </div>
