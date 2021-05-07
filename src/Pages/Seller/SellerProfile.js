@@ -36,7 +36,7 @@ const SellerProfile = () => {
         };
 
         fetch();
-    }, []);
+    }, [alert]);
 
     const handlePassword = (event) => {
         setPassword(event.target.value);
