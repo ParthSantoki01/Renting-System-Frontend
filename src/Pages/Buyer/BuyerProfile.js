@@ -46,13 +46,10 @@ const BuyerProfile = () => {
         })
         .then(function (response) {
             const data = response.data;
-           // console.log(data);
-            //console.log(Buyer.auth_token);
             if (data.error) {
                 alert.error(data.msg);
             } else {
                 alert.success(data.msg);
-               // return history.push('./login');
             }
         })
         .catch(function (error) {
