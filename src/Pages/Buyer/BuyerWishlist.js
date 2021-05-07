@@ -5,52 +5,60 @@ import TitleHeader from '../../Components/Header/TitleHeader';
 import { useAlert } from 'react-alert';
 
 const BuyerWishlist = () => {
-  const alert = useAlert();
-  const [Products, setData] = useState([]);
-  useEffect(() => {
-    const fetch = () => {
-      axios
-        .get('https://rentingsystem.herokuapp.com/buyer/detail', {
-          headers: {
-            auth_token: localStorage.getItem('auth_token'),
-          },
-        })
-        .then((response) => {
-          axios
-            .post('https://rentingsystem.herokuapp.com/buyer/getwishlist', {
-              buyer: response.data.buyer[0]._id,
-            })
-            .then((response) => {
-              // console.log(response);
-              if (response.data.error) {
-                alert.error(response.data.msg);
-                setData([]);
-              } else {
-                setData(response.data.data);
-              }
-            })
-            .catch((e) => {
-              console.log(e);
-            });
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    };
+    const alert = useAlert();
 
-    fetch();
-  }, [alert]);
+    const [Products, setData] = useState([]);
 
-  return (
-    <div className='BuyerWishlist-page'>
-      <TitleHeader name={'My Wishlist'} />
-      <div className='BuyerWishlist-card'>
-        {Products.map((product) => {
-          return <GeneralCard key={product._id} product={product} />;
-        })}
-      </div>
-    </div>
-  );
+    useEffect(() => {
+        const fetch = () => {
+            axios
+                .get('https://rentingsystem.herokuapp.com/buyer/detail', {
+                    headers: {
+                        auth_token: localStorage.getItem('auth_token'),
+                    },
+                })
+                .then((response) => {
+                    const data = response.data;
+                    if (data.error) {
+                        alert.error(data.msg);
+                        return;
+                    }
+                    axios
+                        .post(
+                            'https://rentingsystem.herokuapp.com/buyer/getwishlist',
+                            {
+                                buyer: response.data.buyer[0]._id,
+                            }
+                        )
+                        .then((response) => {
+                            if (response.data.error) {
+                                alert.error(response.data.msg);
+                                setData([]);
+                            } else {
+                                setData(response.data.data);
+                            }
+                        })
+                        .catch((e) => {
+                            console.log(e);
+                        });
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
+        };
+        fetch();
+    }, [alert]);
+
+    return (
+        <div className='BuyerWishlist-page'>
+            <TitleHeader name={'My Wishlist'} />
+            <div className='BuyerWishlist-card'>
+                {Products.map((product) => {
+                    return <GeneralCard key={product._id} product={product} />;
+                })}
+            </div>
+        </div>
+    );
 };
 
 export default BuyerWishlist;

@@ -4,16 +4,26 @@ import SearchHeader from '../../Components/Header/SearchHeader';
 import ProductCard from '../../Components/Cardview/ProductCard';
 import './style.css';
 import { useLocation } from 'react-router-dom';
+import { useAlert } from 'react-alert';
+
 const CategoryPage = (props) => {
     let location = useLocation();
+    const alert = useAlert();
 
     const [Products, setData] = useState([]);
+
     useEffect(() => {
         const fetch = () => {
             axios
                 .get('https://rentingsystem.herokuapp.com/product/')
                 .then((response) => {
-                    setData(response.data.product);
+                    const data = response.data;
+                    if (data.error) {
+                        alert.error(data.msg);
+                        setData([]);
+                    } else {
+                        setData(response.data.product);
+                    }
                 })
                 .catch((e) => {
                     console.log(e);
@@ -21,7 +31,7 @@ const CategoryPage = (props) => {
         };
 
         fetch();
-    }, []);
+    }, [alert]);
 
     return (
         <div className='Dashboard'>
@@ -37,10 +47,6 @@ const CategoryPage = (props) => {
             </div>
         </div>
     );
-};
-
-CategoryPage.defaultProps = {
-    category: 'House',
 };
 
 export default CategoryPage;

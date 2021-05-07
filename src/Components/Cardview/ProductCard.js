@@ -5,6 +5,7 @@ import logo from '../../Assets/logo512.png';
 
 const Cardview = (props) => {
     const product = props.product;
+
     const [buyer, setBuyer] = useState(false);
 
     useEffect(() => {

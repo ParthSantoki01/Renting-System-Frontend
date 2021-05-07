@@ -3,35 +3,44 @@ import axios from 'axios';
 import SearchHeader from '../../Components/Header/SearchHeader';
 import ProductCard from '../../Components/Cardview/ProductCard';
 import './style.css';
+import { useAlert } from 'react-alert';
 
 const Dashboard = () => {
-  const [Products, setData] = useState([]);
+    const alert = useAlert();
 
-  useEffect(() => {
-    const fetch = () => {
-      axios
-        .get('https://rentingsystem.herokuapp.com/product')
-        .then((response) => {
-          setData(response.data.product);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    };
+    const [Products, setData] = useState([]);
 
-    fetch();
-  }, []);
+    useEffect(() => {
+        const fetch = () => {
+            axios
+                .get('https://rentingsystem.herokuapp.com/product')
+                .then((response) => {
+                    const data = response.data;
+                    if (data.error) {
+                        alert.error(data.msg);
+                        setData([]);
+                    } else {
+                        setData(response.data.product);
+                    }
+                })
+                .catch((e) => {
+                    console.log(e);
+                });
+        };
 
-  return (
-    <div className='Dashboard'>
-      <SearchHeader />
-      <div className='Main-card'>
-        {Products.map((product) => {
-          return <ProductCard key={product._id} product={product} />;
-        })}
-      </div>
-    </div>
-  );
+        fetch();
+    }, [alert]);
+
+    return (
+        <div className='Dashboard'>
+            <SearchHeader />
+            <div className='Main-card'>
+                {Products.map((product) => {
+                    return <ProductCard key={product._id} product={product} />;
+                })}
+            </div>
+        </div>
+    );
 };
 
 export default Dashboard;
