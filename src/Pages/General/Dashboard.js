@@ -9,6 +9,7 @@ const Dashboard = () => {
     const alert = useAlert();
 
     const [Products, setData] = useState([]);
+    const [filter, setFilter] = useState([]);
 
     useEffect(() => {
         const fetch = () => {
@@ -21,6 +22,7 @@ const Dashboard = () => {
                         setData([]);
                     } else {
                         setData(response.data.product);
+                        setFilter(response.data.product);
                     }
                 })
                 .catch((e) => {
@@ -31,11 +33,26 @@ const Dashboard = () => {
         fetch();
     }, [alert]);
 
+    const handleInputChanges = (event) => {
+        setFilter(
+            Products.filter((product) => {
+                return (
+                    product.title
+                        .toLowerCase()
+                        .indexOf(event.target.value.toLowerCase()) !== -1 ||
+                    product.category
+                        .toLowerCase()
+                        .indexOf(event.target.value.toLowerCase()) !== -1
+                );
+            })
+        );
+    };
+
     return (
         <div className='Dashboard'>
-            <SearchHeader />
+            <SearchHeader handleChange={handleInputChanges} />
             <div className='Main-card'>
-                {Products.map((product) => {
+                {filter.map((product) => {
                     return <ProductCard key={product._id} product={product} />;
                 })}
             </div>
