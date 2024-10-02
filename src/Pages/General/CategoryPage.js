@@ -11,6 +11,7 @@ const CategoryPage = (props) => {
     const alert = useAlert();
 
     const [Products, setData] = useState([]);
+    const [filter, setFilter] = useState([]);
 
     useEffect(() => {
         const fetch = () => {
@@ -22,7 +23,16 @@ const CategoryPage = (props) => {
                         alert.error(data.msg);
                         setData([]);
                     } else {
-                        setData(response.data.product);
+                        setData(
+                            response.data.product.filter((product) => {
+                                return product.category === location.state;
+                            })
+                        );
+                        setFilter(
+                            response.data.product.filter((product) => {
+                                return product.category === location.state;
+                            })
+                        );
                     }
                 })
                 .catch((e) => {
@@ -31,18 +41,26 @@ const CategoryPage = (props) => {
         };
 
         fetch();
-    }, [alert]);
+    }, [alert, location.state]);
+
+    const handleInputChanges = (event) => {
+        setFilter(
+            Products.filter((product) => {
+                return (
+                    product.title
+                        .toLowerCase()
+                        .indexOf(event.target.value.toLowerCase()) !== -1
+                );
+            })
+        );
+    };
 
     return (
         <div className='Dashboard'>
-            <SearchHeader />
+            <SearchHeader handleChange={handleInputChanges} />
             <div className='Main-card'>
-                {Products.map((product) => {
-                    return (
-                        product.category === location.state && (
-                            <ProductCard key={product._id} product={product} />
-                        )
-                    );
+                {filter.map((product) => {
+                    return <ProductCard key={product._id} product={product} />;
                 })}
             </div>
         </div>
